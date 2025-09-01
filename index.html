@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cricket Game</title>
+  <link rel="stylesheet" href="cricket.css">
+</head>
+
+<body>
+  <div class="frame">
+    <h1> Bat Ball Stump Game</h1>
+
+  
+    <button class="buttons" onclick="
+    let userChoiceMsg='Bat';
+    let computerChoice=generateComputerChoice();
+    getResult('Bat',computerChoice);
+    ">Bat</button>
+
+    <button class="buttons" onclick="
+    computerChoice=generateComputerChoice();
+    userChoiceMsg='Ball';
+    getResult('Ball',computerChoice);
+    ">Ball</button>
+
+    <button class="buttons" onclick="
+    userChoiceMsg='Stump';
+    computerChoice=generateComputerChoice();
+    getResult('Stump',computerChoice);
+    ">Stump</button> 
+
+    <button class="btn" onclick="
+    document.querySelector(`#ComputerChoice`).value='';
+    document.querySelector(`#UserChoice`).value='';
+    document.querySelector(`#result`).value='';
+    ">Reset</button>
+    <hr>
+      <h3>User Choice</h3>
+      <input type="text" class="display" id="UserChoice" placeholder="User Choice" readonly>
+      <h3>Computer Choice</h3>
+      <input type="text" class="display" id="ComputerChoice" placeholder="Computer Choice" readonly>
+      <h3>Result</h3>
+      <input type="text" class="display" id="result" placeholder="Result" readonly >
+  </div>
+  <script src="cricket.js"></script>
+</body>
+</html>
