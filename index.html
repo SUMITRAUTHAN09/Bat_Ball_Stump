@@ -32,6 +32,8 @@
     document.querySelector(`#ComputerChoice`).value='';
     document.querySelector(`#UserChoice`).value='';
     document.querySelector(`#result`).value='';
+    document.querySelector(`#score`).value='';
+    reset();
     ">Reset</button>
     <hr>
       <h3>User Choice</h3>
@@ -40,6 +42,9 @@
       <input type="text" class="display" id="ComputerChoice" placeholder="Computer Choice" readonly>
       <h3>Result</h3>
       <input type="text" class="display" id="result" placeholder="Result" readonly >
+      <input type="text" class="display" id="score" placeholder="win: 0 lost: 0 tie: 0"
+      readonly>
+
   </div>
   <script src="cricket.js"></script>
 </body>
