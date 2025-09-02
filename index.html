@@ -28,13 +28,7 @@
     getResult('Stump',computerChoice);
     ">Stump</button> 
 
-    <button class="btn" onclick="
-    document.querySelector(`#ComputerChoice`).value='';
-    document.querySelector(`#UserChoice`).value='';
-    document.querySelector(`#result`).value='';
-    document.querySelector(`#score`).value='';
-    reset();
-    ">Reset</button>
+    <button class="btn" onclick="reset();">Reset</button>
     <hr>
       <h3>User Choice</h3>
       <input type="text" class="display" id="UserChoice" placeholder="User Choice" readonly>
