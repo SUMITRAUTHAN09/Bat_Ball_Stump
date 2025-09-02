@@ -1,9 +1,13 @@
+//incapsulation of score object in this project 
 let score={
   win:0,
   lost:0,
   tie:0,
 }
-
+score.displayScore= function(){
+  localStorage.setItem('Score',JSON.stringify(score));
+  return `win: ${score.win} lost: ${score.lost} tie: ${score.tie}`
+};
 
 function generateComputerChoice(){
     let randomNumber=Math.random()*3;
@@ -18,34 +22,35 @@ function generateComputerChoice(){
        return computerChoice;
     }
 
-    function getResult(userMove){
-      let computerMove=generateComputerChoice();
-      let resultMsg='';
-      if(userMove=== computerMove){
-        score.tie++;
-        esultMsg='Tie';
-      }
-      else if(userMove==='Bat' && computerMove==='Ball' || userMove==='Ball' && computerMove==='Stump' || userMove==='Stump' && computerMove==='Bat'){
-        score.win++;
-        resultMsg='You Win';
-      }
-      else{
-        score.lost++; 
-        resultMsg='you Lose';
-      }
-        document.querySelector(`#ComputerChoice`).value=computerMove;
-        document.querySelector(`#UserChoice`).value=userMove;
-        document.querySelector(`#result`).value=resultMsg;  
-        document.querySelector(`#score`).value=`win: ${score.win} lost: ${score.lost} tie: ${score.tie}`;
-        console.log(score);
-      }
+function getResult(userMove){
+  let computerMove=generateComputerChoice();
+  let resultMsg='';
+  if(userMove=== computerMove){
+    score.tie++;
+    resultMsg='Tie';
+  }
+  else if(userMove==='Bat' && computerMove==='Ball' || userMove==='Ball' && computerMove==='Stump' || userMove==='Stump' && computerMove==='Bat'){
+    score.win++;
+    resultMsg='You Win';
+  }
+  else{
+    score.lost++; 
+    resultMsg='you Lose';
+  }
+    document.querySelector(`#ComputerChoice`).value=computerMove;
+    document.querySelector(`#UserChoice`).value=userMove;
+    document.querySelector(`#result`).value=resultMsg;  
+    document.querySelector(`#score`).value=`${score.displayScore()}`;
+    console.log(score);
+  }
     
-    function reset(){
-      score.win=0;
-      score.lost=0;
-      score.tie=0;
-      document.querySelector(`#ComputerChoice`).value='';
-      document.querySelector(`#UserChoice`).value='';
-      document.querySelector(`#result`).value='';  
-      document.querySelector(`#score`).value=`win: ${score.win} lost: ${score.lost} tie: ${score.tie}`;
-    }
+function reset(){
+  score.win=0;
+  score.lost=0;
+  score.tie=0;
+  document.querySelector(`#ComputerChoice`).value='';
+  document.querySelector(`#UserChoice`).value='';
+  document.querySelector(`#result`).value='';  
+  document.querySelector(`#score`).value=`${score.displayScore()}`;
+  localStorage.clear();
+}
